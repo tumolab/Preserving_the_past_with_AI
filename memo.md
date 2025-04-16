@@ -27,10 +27,10 @@ python3 path/to/file/split.py
 
 ### YOLO usage (CLI)
 
-`yolo [mode] [task]`
+`yolo [task] [mode]`
 with :
-- mode = detect (bbox), segment (polygons), classify, pose (keypoints)
-- task = train, predict
+- task = detect (bbox), segment (polygons), classify, pose (keypoints)
+- mode = train, predict
 
 ```bash
 yolo detect predict source=/path/to/image/or/path/to/folder_images model=path/to/model

@@ -51,3 +51,16 @@ pip install label-studio
 ```bash
 label-studio
 ```
+
+## Streamlit
+
+### Install
+(in the same env with ML codes)
+```bash
+pip install streamlit
+```
+
+### Start
+```bash
+streamlit run my_app.py
+```

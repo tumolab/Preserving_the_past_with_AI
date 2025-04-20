@@ -1,11 +1,14 @@
 # TUMO Workshop - Preserving the Past with AI
 
 <p align="center">
-<img src="assets/Tumo-Logo.png" width="20%"/>  <img src="assets/logo-noir-texte-droite.png" width="20%"/> <img src="assets/nla.png" width="20%"/>
+<img src="assets/home.jpg" width="50%"/>
 </p>
 
-This Git contains main code and tasks for the TUMO workshop "Preserving the Past with AI", led by Chahan Vidal-Gorène (Calfa) and Baptiste Queuche (Calfa).
-Done in partnership with the National Library of Armenia.
+This Git contains main code and tasks for the TUMO workshop "Preserving the Past with AI", led by Chahan Vidal-Gorène (Calfa) and Baptiste Queuche (Calfa). Done in partnership with the National Library of Armenia.
+
+<p align="center">
+<img src="assets/Tumo-Logo.png" width="20%"/>  <img src="assets/logo-noir-texte-droite.png" width="20%"/> <img src="assets/nla.png" width="20%"/>
+</p>
 
 ## Case Study: Document enhancement and post-processing
 The goal is to deal with digitizations of newspapers done by the National Library: quality assessment, image enhancement, document classification.

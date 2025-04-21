@@ -7,8 +7,9 @@ from collections import Counter
 import pandas as pd
 
 # Load models
-detection_model = YOLO("runs_full/weights/PageDetectNewspaper_best.pt")
+detection_model = YOLO("PageDetectNewspaper_best.pt")
 classification_model = YOLO("yolov8n-cls.pt")
+rotation_model = YOLO("classify_rotation.pt")
 
 # --- Functions ---
 def yolo_detect(image, conf_thresh=0.7):
@@ -20,8 +21,8 @@ def yolo_detect(image, conf_thresh=0.7):
     class_names = [names[i] for i in class_ids]
     return Image.fromarray(result_img[..., ::-1]), boxes, class_names
 
-def yolo_classify(image):
-    results = classification_model.predict(source=image, save=False)
+def yolo_classify(image, custom_model):
+    results = custom_model.predict(source=image, save=False)
     class_id = int(results[0].probs.top1)
     class_name = results[0].names[class_id]
     prob = float(results[0].probs.top1conf)
@@ -49,7 +50,7 @@ def count_classes(class_names):
     return Counter(class_names)
 
 # --- UI ---
-st.sidebar.title("YOLO Pipeline")
+st.sidebar.title("Menu")
 uploaded_file = st.sidebar.file_uploader("Upload Image", type=["jpg", "png", "jpeg"])
 
 st.title("Image Processing Pipeline")
@@ -64,13 +65,28 @@ if uploaded_file:
         st.image(selected_image, caption=f"Selected: {selected_name}")
 
     if st.button("Run", key="run_btn"):
-        label, prob = yolo_classify(selected_image)
+        label, prob = yolo_classify(selected_image, classification_model)
         st.session_state["classification_label"] = label
         st.session_state["classification_done"] = True
 
         st.info(f"Classified as: **{label}** ({prob:.2%})")
 
-        if label == "sports_car": #Temporary class, waiting for real classifier
+        # ---- Rotation Classification Begins ----
+        orientation_label, orientation_prob = yolo_classify(selected_image, rotation_model)
+        st.info(f"Detected rotation: **{orientation_label}** ({orientation_prob:.2%})")
+
+        if orientation_label == "90":
+            st.warning("Rotating image -90 degrees")
+            selected_image = selected_image.rotate(90, expand=True)
+        elif orientation_label == "180":
+            st.warning("Rotating image 180 degrees")
+            selected_image = selected_image.rotate(180, expand=True)
+        elif orientation_label == "270":
+            st.warning("Rotating image 90 degrees")
+            selected_image = selected_image.rotate(-90, expand=True)
+        # ---- Rotation Classification Ends ----
+
+        if label == "sports_car":  # Temporary class, waiting for real classifier
             st.warning("We have detected that the image is not in good quality.")
             st.session_state["waiting_for_user_confirm"] = True
         else:
@@ -86,13 +102,6 @@ if uploaded_file:
         det_img, boxes, class_names = yolo_detect(selected_image)
         with col2:
             st.image(det_img, caption="Detection Output")
-
-        # if class_names:
-        #     counts = count_classes(class_names)
-        #     df_counts = pd.DataFrame(counts.items(), columns=["Object", "Count"])
-        #     st.table(df_counts)
-        # else:
-        #     st.warning("No objects detected.")
 
         crops = crop_objects(selected_image, boxes)
         if crops:

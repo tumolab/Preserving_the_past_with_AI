@@ -51,7 +51,7 @@ def crop_objects(image, segments):
             dst_pts = np.array([[0, 0], [width, 0], [width, height], [0, height]], dtype="float32")
             M = cv2.getPerspectiveTransform(box, dst_pts)
             warped = cv2.warpPerspective(img_np, M, (width, height))
-            pil_crop = Image.fromarray(cv2.cvtColor(warped, cv2.COLOR_BGR2RGB))
+            pil_crop = Image.fromarray(warped)
             crops.append((f"object_{i+1}.jpg", pil_crop))
         except Exception as e:
             print(f"Polygon {i} failed: {e}")
@@ -124,13 +124,18 @@ if uploaded_file:
             st.image(det_img, caption="Detection Output")
 
         crops = crop_objects(selected_image, masks)
+        # if crops:
+        #     zip_file = create_zip(crops)
+        #     st.download_button(
+        #         label="📥 Download Crops as ZIP",
+        #         data=zip_file,
+        #         file_name="crops.zip",
+        #         mime="application/zip"
+        #     )
         if crops:
-            zip_file = create_zip(crops)
-            st.download_button(
-                label="📥 Download Crops as ZIP",
-                data=zip_file,
-                file_name="crops.zip",
-                mime="application/zip"
-            )
+            st.markdown("### Detected Crops")
+            for name, crop in crops:
+                st.image(crop, caption=name)
+
 
         st.session_state["run_detection"] = False

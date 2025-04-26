@@ -13,8 +13,32 @@ This Git contains main code and tasks for the TUMO workshop "Preserving the Past
 ## Case Study: Document enhancement and post-processing
 The goal is to deal with digitizations of newspapers done by the National Library: quality assessment, image enhancement, document classification.
 
-## Obj. 1 : explore and discover AI techniques with Python
-Develop and train computer vision model from scratch, building datasets, install packages, defining annotation strategies, prompt engineering for heritage.
+### Course obj. 1 : explore and discover AI techniques with Python
+Develop and train-eval computer vision model from scratch, building datasets, install packages, defining annotation strategies, prompt engineering for document analysis and heritage materials (YOLO, LabelStudio).
 
-## Obj. 2 : project development experience
-Developing an AI-based program for the National Library of Armenia
+### Course obj. 2 : project development experience
+Developing an AI-based program for the National Library of Armenia, using Streamlit, YOLO and openAI API.
+
+<img src="assets/TUMO-2025_pipeline.png" width="100%"/>
+
+## Installation and running
+
+```bash
+git clone https://github.com/CVidalG/workshop-TUMO2025.git
+cd workshop-TUMO2025/app/
+python3 -m venv app-enhancement
+source app-enhancement/bin/activate
+pip install numpy opencv-python Pillow streamlit ultralytics openai pytesseract
+```
+
+Make sure to have `tesseract-ocr` installed on your computer.
+
+then
+
+```bash
+streamlit run main.py
+```
+
+### Models and openAI API
+You can change models in `config.py` and set your openAI api key in `config.py`.
+You need an openAI API key to run the LLM part (optional).

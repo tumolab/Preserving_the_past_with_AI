@@ -28,7 +28,7 @@ git clone https://github.com/CVidalG/workshop-TUMO2025.git
 cd workshop-TUMO2025/app/
 python3 -m venv app-enhancement
 source app-enhancement/bin/activate
-pip install numpy opencv-python Pillow streamlit ultralytics openai pytesseract
+pip install numpy opencv-python Pillow streamlit ultralytics openai pytesseract transformers
 ```
 
 Make sure to have `tesseract-ocr` installed on your computer.

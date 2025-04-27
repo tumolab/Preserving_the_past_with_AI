@@ -42,3 +42,23 @@ streamlit run main.py
 ### Models and openAI API
 You can change models in `config.py` and set your openAI api key in `config.py`.
 You need an openAI API key to run the LLM part (optional).
+
+## How to cite
+
+To cite this work, you can use:
+
+```
+TUMO Students. (2025). Preserving the Past with AI [GitHub repository]. Supervised by Chahan Vidal-Grorène & Baptiste Queuche, Calfa. https://github.com/CVidalG/workshop-TUMO2025.git
+```
+
+Or to use the following bibtex:
+
+```
+@misc{abc2025project,
+  author       = {TUMO Students},
+  title        = {Preserving the Past with AI},
+  year         = {2025},
+  howpublished = {\url{https://github.com/CVidalG/workshop-TUMO2025.git}},
+  note         = {Supervised by Chahan Vidal-Gorène and Baptiste Queuche, Calfa},
+}
+```

@@ -10,6 +10,9 @@ This Git contains main code and tasks for the TUMO workshop "Preserving the Past
 <img src="assets/Tumo-Logo.png" width="20%"/>  <img src="assets/logo-noir-texte-droite.png" width="20%"/> <img src="assets/nla.png" width="20%"/>
 </p>
 
+## Student team
+Alvard Grigoryan, Aren Yeghiazaryan, Davit Ispiryan, Davit Meliksetyan, Davit Navasardyan, Davit Nazluxanyan, Hakob Shahnazaryan, Levon Ananikyan, Mari Aslanyan, Maria Katvalyan, Milena Arshakyan, Sona Khosrovyan, Suren Saghatelyan, Vahe Karapetyan, Valeri Sevyan
+
 ## Case Study: Document enhancement and post-processing
 The goal is to deal with digitizations of newspapers done by the National Library: quality assessment, image enhancement, document classification.
 
@@ -48,14 +51,14 @@ You need an openAI API key to run the LLM part (optional).
 To cite this work, you can use:
 
 ```
-TUMO Students. (2025). Preserving the Past with AI [GitHub repository]. Supervised by Chahan Vidal-Grorène & Baptiste Queuche, Calfa. https://github.com/CVidalG/workshop-TUMO2025.git
+TUMO Students: Alvard Grigoryan, Aren Yeghiazaryan, Davit Ispiryan, Davit Meliksetyan, Davit Navasardyan, Davit Nazluxanyan, Hakob Shahnazaryan, Levon Ananikyan, Mari Aslanyan, Maria Katvalyan, Milena Arshakyan, Sona Khosrovyan, Suren Saghatelyan, Vahe Karapetyan, Valeri Sevyan (2025). Preserving the Past with AI [GitHub repository]. Supervised by Chahan Vidal-Grorène & Baptiste Queuche, Calfa. https://github.com/CVidalG/workshop-TUMO2025.git
 ```
 
 Or to use the following bibtex:
 
 ```
 @misc{abc2025project,
-  author       = {TUMO Students},
+  author       = {Grigoryan, Alvard and Yeghiazaryan, Aren and Ispiryan, Davit and Meliksetyan, Davit and  Navasardyan, Davit and Nazluxanyan, Davit and Shahnazaryan, Hakob and Ananikyan, Levon and Aslanyan, Mari and  Katvalyan, Maria and Arshakyan, Milena and Khosrovyan, Sona and Saghatelyan, Suren and Karapetyan, Vahe and Sevyan, Valeri},
   title        = {Preserving the Past with AI},
   year         = {2025},
   howpublished = {\url{https://github.com/CVidalG/workshop-TUMO2025.git}},
